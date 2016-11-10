@@ -5,11 +5,10 @@ import Immutable from 'seamless-immutable';
 
 describe('topics reducer', () => {
 
-  const reducerTest = new ReducerTest(reducer.default);
+  const reducerTest = new ReducerTest(reducer.default, reducer.initialState).throwOnMutation();
 
   const params  = [
     {
-      state: reducer.initialState,
       action: {type: actionTypes.TOPICS_SELECTED , selectedTopicUrls: ['aaa']},
       expected: {...reducer.initialState, selectedTopicUrls: ['aaa']},
       description: 'adds a selected topic'
@@ -21,17 +20,15 @@ describe('topics reducer', () => {
       description: 'replaces selected topics'
     },
     {
-      state: reducer.initialState,
       action: {type: actionTypes.TOPICS_FETCHED, topicsByUrl: 'TOPICS'},
       expected: {...reducer.initialState, topicsByUrl: 'TOPICS'},
       description: 'fetches topics'
     },
     {
-      state: reducer.initialState,
-      action: {type: actionTypes.TOPIC_SELECTION_FINALIZED,},
+      action: {type: actionTypes.TOPIC_SELECTION_FINALIZED},
       expected: {...reducer.initialState, selectionFinalized: true},
       description: 'fetches topics'
-    },
+    }
   ];
 
   reducerTest.test('test topics reducer', params,

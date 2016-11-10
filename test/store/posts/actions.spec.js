@@ -76,7 +76,7 @@ describe('post actions test', () => {
     expect(mockService.getPostsFromSubreddit).toHaveBeenCalledWith(URL_1);
     expect(mockService.getPostsFromSubreddit).toHaveBeenCalledWith(URL_2);
     expect(actionTest.getDispatched(0).isPlainObject()).toBe(true);
-    expect(actionTest.getDispatched(1)).toBeUndefined();
+    expect(actionTest.getDispatched().length).toBe(1);
     expect(actionTest.getDispatched(0).getType()).toBe(postActionTypes.POSTS_FETCHED);
     expect(actionTest.getDispatched(0).getParams().postsById).toEqual({topicId1: topic1, topicId2: topic2});
   });

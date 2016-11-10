@@ -1,5 +1,4 @@
 import {ActionTest} from 'redux-testkit';
-import proxyquire from 'proxyquire'
 import MockRedditService from '../../services/mockReddit';
 import * as postReducer from '../../../src/store/posts/reducer';
 import * as topicsActionTypes from '../../../src/store/topics/actionTypes';
