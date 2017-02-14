@@ -96,4 +96,17 @@ describe('post actions test', () => {
     expect(mockedConsoleError).toHaveBeenCalledWith("error!");
   });
 
+  it('should change filter', () => {
+    const newFilterAction = actionTest.dispatchSync(uut.changeFilter('new_filter'));
+    expect(newFilterAction.type).toBe(postActionTypes.FILTER_CHANGED);
+    expect(newFilterAction.filter).toBe('new_filter');
+    expect(actionTest.getDispatched(0)).toBeUndefined();
+  });
+
+  it('should select post', () => {
+    const selectPostAction = actionTest.dispatchSync(uut.selectPost('post_id'));
+    expect(selectPostAction.type).toBe(postActionTypes.POST_SELECTED);
+    expect(selectPostAction.postId).toBe('post_id');
+    expect(actionTest.getDispatched(0)).toBeUndefined();
+  });
 });

@@ -1,7 +1,7 @@
 export default class MockRedditService {
 
-  getDefaultSubreddits = async function() {};
-  getPostsFromSubreddit = async function() {};
+  getDefaultSubreddits;
+  getPostsFromSubreddit;
 
   reset() {
     this.getDefaultSubreddits = jest.fn();
@@ -14,5 +14,9 @@ export default class MockRedditService {
 
   addPostsfromSubbredditReturn(value) {
     this.getPostsFromSubreddit.mockReturnValueOnce(value);
+  }
+
+  throwOnGetDefaultSubreddits(error) {
+    this.getDefaultSubreddits = jest.fn(() => {throw new Error(error)});
   }
 }
