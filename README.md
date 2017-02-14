@@ -10,6 +10,12 @@ A real-life example of a React project with focus on dataflow management. The ex
  * `npm start`
  * Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## Running the tests
+
+Run `npm run test` which will run Jest with watch configuration.
+
+If you're getting errors when running tests, saying "Could not locate the bindings file", update the version of node-gyp: `npm explore npm -g -- npm install node-gyp@latest`. If tests still don't pass go into node_modules/deasync and run `node-gyp configure && node-gyp build`
+
 ## Want to contribute your own flavor?
 
 1. Implement the entire app and reach the same end result using your own methodology
